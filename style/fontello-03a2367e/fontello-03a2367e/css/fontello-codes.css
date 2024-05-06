@@ -1,0 +1,10 @@
+
+.icon-help:before { content: '\e800'; } /* '' */
+.icon-back:before { content: '\e801'; } /* '' */
+.icon-pause:before { content: '\e802'; } /* '' */
+.icon-play:before { content: '\e803'; } /* '' */
+.icon-crown:before { content: '\e844'; } /* '' */
+.icon-gamepad:before { content: '\f11b'; } /* '' */
+.icon-left:before { content: '\f177'; } /* '' */
+.icon-right:before { content: '\f178'; } /* '' */
+.icon-joystick:before { content: '\f514'; } /* '' */
