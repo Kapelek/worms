@@ -1,4 +1,4 @@
-### ENG:
+ENG:
 
 The 'Worms' game is dedicated to play for two, three or four persons only (playing on one keyboard).
 
