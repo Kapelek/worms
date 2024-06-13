@@ -6,183 +6,380 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Worms Game</title>
     <link rel="stylesheet" href="style/style.css" />
-    <link rel="stylesheet" href="style/fontello-03a2367e/fontello-03a2367e/css/fontello.css" />
+    <link
+      rel="stylesheet"
+      href="style/fontello-03a2367e/fontello-03a2367e/css/fontello.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/game.js"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon/favicon-16x16.png"
+    />
   </head>
   <body>
-    <div id="author"> By: Kacper Kędzior </div>
+    <div id="author">By: Kacper Kędzior</div>
     <div id="menu-bg">
-        <div id="start-screen" onclick="start_screen_close()">
-            <h1>WORMS GAME</h1>
-            <h2>click anywhere to start</h2>
+      <div id="start-screen" onclick="start_screen_close()">
+        <h1>WORMS GAME</h1>
+        <h2>click anywhere to start</h2>
+      </div>
+      <div id="players_amount-screen">
+        <h1>Pick the amount of players</h1>
+        <div id="pao-bg">
+          <div class="players_amount-option" onclick="players_amount_pick(2)">
+            <i class="icon-gamepad"></i>
+            <p>2P</p>
+          </div>
+          <div class="players_amount-option" onclick="players_amount_pick(3)">
+            <i class="icon-gamepad"></i>
+            <p>3P</p>
+          </div>
+          <div class="players_amount-option" onclick="players_amount_pick(4)">
+            <i class="icon-gamepad"></i>
+            <p>4P</p>
+          </div>
         </div>
-        <div id="players_amount-screen">
-            <h1>Pick the amount of players</h1>
-            <div id="pao-bg">
-                <div class="players_amount-option" onclick="players_amount_pick(2)">
-                    <i class="icon-gamepad"></i>
-                    <p>2P</p>
-                </div>
-                <div class="players_amount-option" onclick="players_amount_pick(3)">
-                    <i class="icon-gamepad"></i>
-                    <p>3P</p>
-                </div>
-                <div class="players_amount-option" onclick="players_amount_pick(4)">
-                    <i class="icon-gamepad"></i>
-                    <p>4P</p>
-                </div>
+      </div>
+      <div id="menu-screen">
+        <div id="top-line">
+          <div class="menu-btn menu-back" onclick="menu_back()">
+            <i class="icon-back"></i>
+          </div>
+          <div id="menu-banner">
+            <h1>WORMS</h1>
+            <h2>GAME</h2>
+          </div>
+          <div id="rules" class="menu-btn">
+            <i class="icon-help"></i>
+            <div id="rules-window">
+              <h2>GAME RULES</h2>
+              <p>
+                Players will compete against each other trying to survive on the
+                limited space with other worms, not hitting the tail of any worm
+                (including their own) or the yellow border!<br /><br />
+                The alive players get 1 point from every worm's death. If only
+                one player has left, a new round begins.<br /><br />
+                The game continues up to the player reaches the score goal with
+                the two-points lead.
+              </p>
+              <h2>HOW TO START?</h2>
+              <p>
+                At first, choose the colors of your worms
+                <span class="rules-text-red">(required)</span> and their names.
+                <br />You can set the score goal also. <br /><br />
+                Each player has diffrent keys to control the worm left-right.
+                <br />You can see them under 'KEYBINDINGS' sign.<br /><br />
+                <span class="rules-text-gold"
+                  >After clicking 'PLAY' button the game will start.</span
+                >
+              </p>
             </div>
+          </div>
         </div>
-        <div id="menu-screen">
-            <div id="top-line">
-                <div class="menu-btn menu-back" onclick="menu_back()"><i class="icon-back"></i></div>
-                <div id="menu-banner">
-                    <h1>WORMS</h1>
-                    <h2>GAME</h2>
-                </div>
-                <div id="rules" class="menu-btn">
-                    <i class="icon-help"></i>
-                    <div id="rules-window">
-                        <h2>HOW TO START?</h2>
-                        <p>
-                            At first, choose the colors of your worms <span class="rules-text-red">(required)</span> and their
-                            names. <br/>You can set the score goal also. <br/><br/>
-                            Each player has diffrent keys to control the worm left-right. 
-                            <br/>You can see them under 'KEYBINDINGS' sign.<br/><br/>
-                            <span class="rules-text-gold">After clicking 'PLAY' button the game will start.</span>
-                        </p>
-                        <h2>GAME RULES</h2>
-                        <p>
-                            Players will compete against each other trying not to hit the tail of any worm 
-                            (including their own) or the yellow border!<br/><br/>
-                            The alive players get 1 point from every worm's death. 
-                            If only one player has left, a new round begins.<br/><br/>
-                            The game continues up to the player reaches the score goal with the two-points lead.
-                        </p>
-                    </div>
-                </div>
+        <div id="players-lines">
+          <div class="players-line" id="p1-line">
+            <div class="player_number">P1</div>
+            <div class="color_pick_frame1"><p>CHOOSE COLOR</p></div>
+            <div class="color_pick_frame2">
+              <div
+                class="cp1"
+                onclick="color_pick('p1-line','cp1','blue')"
+              ></div>
+              <div
+                class="cp2"
+                onclick="color_pick('p1-line','cp2','purple')"
+              ></div>
+              <div
+                class="cp3"
+                onclick="color_pick('p1-line','cp3','red')"
+              ></div>
+              <div
+                class="cp4"
+                onclick="color_pick('p1-line','cp4','green')"
+              ></div>
+              <div
+                class="cp5"
+                onclick="color_pick('p1-line','cp5','yellow')"
+              ></div>
+              <div
+                class="cp6"
+                onclick="color_pick('p1-line','cp6','orange')"
+              ></div>
+              <div
+                class="cp7"
+                onclick="color_pick('p1-line','cp7','hotpink')"
+              ></div>
+              <div
+                class="cp8"
+                onclick="color_pick('p1-line','cp8','aqua')"
+              ></div>
+              <div
+                class="cp9"
+                onclick="color_pick('p1-line','cp9','lemonchiffon')"
+              ></div>
+              <div
+                class="cp10"
+                onclick="color_pick('p1-line','cp10','gray')"
+              ></div>
             </div>
-            <div id="players-lines">
-                <div class="players-line" id="p1-line">
-                    <div class="player_number">P1</div>
-                    <div class="color_pick_frame1"><p>CHOOSE COLOR</p></div>
-                    <div class="color_pick_frame2">
-                        <div class="cp1" onclick="color_pick('p1-line','cp1','blue')"></div>
-                        <div class="cp2" onclick="color_pick('p1-line','cp2','purple')"></div>
-                        <div class="cp3" onclick="color_pick('p1-line','cp3','red')"></div>
-                        <div class="cp4" onclick="color_pick('p1-line','cp4','green')"></div>
-                        <div class="cp5" onclick="color_pick('p1-line','cp5','yellow')"></div>
-                        <div class="cp6" onclick="color_pick('p1-line','cp6','orange')"></div>
-                        <div class="cp7" onclick="color_pick('p1-line','cp7','hotpink')"></div>
-                        <div class="cp8" onclick="color_pick('p1-line','cp8','aqua')"></div>
-                        <div class="cp9" onclick="color_pick('p1-line','cp9','lemonchiffon')"></div>
-                        <div class="cp10" onclick="color_pick('p1-line','cp10','gray')"></div>
-                    </div>
-                    <input type="text" class="players_name_pick" id="p1-name" placeholder="PLAYER 1 - NAME" maxlength="15" autocomplete="off">
-                    <div class="keystrokes-box-left"><i class="icon-left"></i></div>
-                    <div class="keystrokes-box-right"><i class="icon-right"></i></div>
-                </div>
-                <div class="players-line" id="p2-line">
-                    <div class="player_number">P2</div>
-                    <div class="color_pick_frame1"><p>CHOOSE COLOR</p></div>
-                    <div class="color_pick_frame2">
-                        <div class="cp1" onclick="color_pick('p2-line','cp1','blue')"></div>
-                        <div class="cp2" onclick="color_pick('p2-line','cp2','purple')"></div>
-                        <div class="cp3" onclick="color_pick('p2-line','cp3','red')"></div>
-                        <div class="cp4" onclick="color_pick('p2-line','cp4','green')"></div>
-                        <div class="cp5" onclick="color_pick('p2-line','cp5','yellow')"></div>
-                        <div class="cp6" onclick="color_pick('p2-line','cp6','orange')"></div>
-                        <div class="cp7" onclick="color_pick('p2-line','cp7','hotpink')"></div>
-                        <div class="cp8" onclick="color_pick('p2-line','cp8','aqua')"></div>
-                        <div class="cp9" onclick="color_pick('p2-line','cp9','lemonchiffon')"></div>
-                        <div class="cp10" onclick="color_pick('p2-line','cp10','gray')"></div>
-                    </div>
-                    <input type="text" class="players_name_pick" id="p2-name" placeholder="PLAYER 2 - NAME" maxlength="15" autocomplete="off">
-                    <div class="keystrokes-box-left"><p>A</p></div>
-                    <div class="keystrokes-box-right"><p>D</p></div>
-                </div>
-                <div class="players-line" id="p3-line">
-                    <div class="player_number">P3</div>
-                    <div class="color_pick_frame1"><p>CHOOSE COLOR</p></div>
-                    <div class="color_pick_frame2">
-                        <div class="cp1" onclick="color_pick('p3-line','cp1','blue')"></div>
-                        <div class="cp2" onclick="color_pick('p3-line','cp2','purple')"></div>
-                        <div class="cp3" onclick="color_pick('p3-line','cp3','red')"></div>
-                        <div class="cp4" onclick="color_pick('p3-line','cp4','green')"></div>
-                        <div class="cp5" onclick="color_pick('p3-line','cp5','yellow')"></div>
-                        <div class="cp6" onclick="color_pick('p3-line','cp6','orange')"></div>
-                        <div class="cp7" onclick="color_pick('p3-line','cp7','hotpink')"></div>
-                        <div class="cp8" onclick="color_pick('p3-line','cp8','aqua')"></div>
-                        <div class="cp9" onclick="color_pick('p3-line','cp9','lemonchiffon')"></div>
-                        <div class="cp10" onclick="color_pick('p3-line','cp10','gray')"></div>
-                    </div>
-                    <input type="text" class="players_name_pick" id="p3-name" placeholder="PLAYER 3 - NAME" maxlength="15" autocomplete="off">
-                    <div class="keystrokes-box-left"><p>B</p></div>
-                    <div class="keystrokes-box-right"><p>N</p></div>
-                </div>
-                <div class="players-line" id="p4-line">
-                    <div class="player_number">P4</div>
-                    <div class="color_pick_frame1"><p>CHOOSE COLOR</p></div>
-                    <div class="color_pick_frame2">
-                        <div class="cp1" onclick="color_pick('p4-line','cp1','blue')"></div>
-                        <div class="cp2" onclick="color_pick('p4-line','cp2','purple')"></div>
-                        <div class="cp3" onclick="color_pick('p4-line','cp3','red')"></div>
-                        <div class="cp4" onclick="color_pick('p4-line','cp4','green')"></div>
-                        <div class="cp5" onclick="color_pick('p4-line','cp5','yellow')"></div>
-                        <div class="cp6" onclick="color_pick('p4-line','cp6','orange')"></div>
-                        <div class="cp7" onclick="color_pick('p4-line','cp7','hotpink')"></div>
-                        <div class="cp8" onclick="color_pick('p4-line','cp8','aqua')"></div>
-                        <div class="cp9" onclick="color_pick('p4-line','cp9','lemonchiffon')"></div>
-                        <div class="cp10" onclick="color_pick('p4-line','cp10','gray')"></div>
-                    </div>
-                    <input type="text" class="players_name_pick" id="p4-name" placeholder="PLAYER 4 - NAME" maxlength="15" autocomplete="off">
-                <div class="keystrokes-box-left"><p>K</p></div>
-                    <div class="keystrokes-box-right"><p>L</p></div>
-                </div>
-                <div class="players-line" id="max-rounds-line">
-                    <h2>CHOOSE SCORE GOAL</h2>
-                    <input type="number" id="max-rounds" placeholder="" step="1" autocomplete="off">
-                </div>  
+            <input
+              type="text"
+              class="players_name_pick"
+              id="p1-name"
+              placeholder="PLAYER 1 - NAME"
+              maxlength="15"
+              autocomplete="off"
+            />
+            <div class="keystrokes-box-left"><i class="icon-left"></i></div>
+            <div class="keystrokes-box-right"><i class="icon-right"></i></div>
+          </div>
+          <div class="players-line" id="p2-line">
+            <div class="player_number">P2</div>
+            <div class="color_pick_frame1"><p>CHOOSE COLOR</p></div>
+            <div class="color_pick_frame2">
+              <div
+                class="cp1"
+                onclick="color_pick('p2-line','cp1','blue')"
+              ></div>
+              <div
+                class="cp2"
+                onclick="color_pick('p2-line','cp2','purple')"
+              ></div>
+              <div
+                class="cp3"
+                onclick="color_pick('p2-line','cp3','red')"
+              ></div>
+              <div
+                class="cp4"
+                onclick="color_pick('p2-line','cp4','green')"
+              ></div>
+              <div
+                class="cp5"
+                onclick="color_pick('p2-line','cp5','yellow')"
+              ></div>
+              <div
+                class="cp6"
+                onclick="color_pick('p2-line','cp6','orange')"
+              ></div>
+              <div
+                class="cp7"
+                onclick="color_pick('p2-line','cp7','hotpink')"
+              ></div>
+              <div
+                class="cp8"
+                onclick="color_pick('p2-line','cp8','aqua')"
+              ></div>
+              <div
+                class="cp9"
+                onclick="color_pick('p2-line','cp9','lemonchiffon')"
+              ></div>
+              <div
+                class="cp10"
+                onclick="color_pick('p2-line','cp10','gray')"
+              ></div>
             </div>
-            <div id="start-game" onclick="start_game()">PLAY</div>
+            <input
+              type="text"
+              class="players_name_pick"
+              id="p2-name"
+              placeholder="PLAYER 2 - NAME"
+              maxlength="15"
+              autocomplete="off"
+            />
+            <div class="keystrokes-box-left"><p>A</p></div>
+            <div class="keystrokes-box-right"><p>D</p></div>
+          </div>
+          <div class="players-line" id="p3-line">
+            <div class="player_number">P3</div>
+            <div class="color_pick_frame1"><p>CHOOSE COLOR</p></div>
+            <div class="color_pick_frame2">
+              <div
+                class="cp1"
+                onclick="color_pick('p3-line','cp1','blue')"
+              ></div>
+              <div
+                class="cp2"
+                onclick="color_pick('p3-line','cp2','purple')"
+              ></div>
+              <div
+                class="cp3"
+                onclick="color_pick('p3-line','cp3','red')"
+              ></div>
+              <div
+                class="cp4"
+                onclick="color_pick('p3-line','cp4','green')"
+              ></div>
+              <div
+                class="cp5"
+                onclick="color_pick('p3-line','cp5','yellow')"
+              ></div>
+              <div
+                class="cp6"
+                onclick="color_pick('p3-line','cp6','orange')"
+              ></div>
+              <div
+                class="cp7"
+                onclick="color_pick('p3-line','cp7','hotpink')"
+              ></div>
+              <div
+                class="cp8"
+                onclick="color_pick('p3-line','cp8','aqua')"
+              ></div>
+              <div
+                class="cp9"
+                onclick="color_pick('p3-line','cp9','lemonchiffon')"
+              ></div>
+              <div
+                class="cp10"
+                onclick="color_pick('p3-line','cp10','gray')"
+              ></div>
+            </div>
+            <input
+              type="text"
+              class="players_name_pick"
+              id="p3-name"
+              placeholder="PLAYER 3 - NAME"
+              maxlength="15"
+              autocomplete="off"
+            />
+            <div class="keystrokes-box-left"><p>B</p></div>
+            <div class="keystrokes-box-right"><p>N</p></div>
+          </div>
+          <div class="players-line" id="p4-line">
+            <div class="player_number">P4</div>
+            <div class="color_pick_frame1"><p>CHOOSE COLOR</p></div>
+            <div class="color_pick_frame2">
+              <div
+                class="cp1"
+                onclick="color_pick('p4-line','cp1','blue')"
+              ></div>
+              <div
+                class="cp2"
+                onclick="color_pick('p4-line','cp2','purple')"
+              ></div>
+              <div
+                class="cp3"
+                onclick="color_pick('p4-line','cp3','red')"
+              ></div>
+              <div
+                class="cp4"
+                onclick="color_pick('p4-line','cp4','green')"
+              ></div>
+              <div
+                class="cp5"
+                onclick="color_pick('p4-line','cp5','yellow')"
+              ></div>
+              <div
+                class="cp6"
+                onclick="color_pick('p4-line','cp6','orange')"
+              ></div>
+              <div
+                class="cp7"
+                onclick="color_pick('p4-line','cp7','hotpink')"
+              ></div>
+              <div
+                class="cp8"
+                onclick="color_pick('p4-line','cp8','aqua')"
+              ></div>
+              <div
+                class="cp9"
+                onclick="color_pick('p4-line','cp9','lemonchiffon')"
+              ></div>
+              <div
+                class="cp10"
+                onclick="color_pick('p4-line','cp10','gray')"
+              ></div>
+            </div>
+            <input
+              type="text"
+              class="players_name_pick"
+              id="p4-name"
+              placeholder="PLAYER 4 - NAME"
+              maxlength="15"
+              autocomplete="off"
+            />
+            <div class="keystrokes-box-left"><p>K</p></div>
+            <div class="keystrokes-box-right"><p>L</p></div>
+          </div>
+          <div class="players-line" id="max-rounds-line">
+            <h2>CHOOSE SCORE GOAL</h2>
+            <input
+              type="number"
+              id="max-rounds"
+              placeholder=""
+              step="1"
+              autocomplete="off"
+            />
+          </div>
         </div>
+        <div id="start-game" onclick="start_game()">PLAY</div>
+      </div>
 
-        <canvas width="600" height="600" id="myCanvas"></canvas>
-        <div id="pause-screen">
-            <div class="menu-btn menu-back" onclick="play_again()"><i class="icon-back"></i></div>
-            <i class="icon-pause"></i>
+      <canvas width="600" height="600" id="myCanvas"></canvas>
+      <div id="pause-screen">
+        <div class="menu-btn menu-back" onclick="play_again()">
+          <i class="icon-back"></i>
         </div>
-        <div id="end-screen">
-            <div id="in-end-screen">
-                <span>
-                    <h1 id="winner"></h1>
-                    <h1>wins</h1>
-                </span>
-                <h2 onclick="play_again()">play again</h2>
-            </div>
+        <i class="icon-pause"></i>
+      </div>
+      <div id="end-screen">
+        <div id="in-end-screen">
+          <span>
+            <h1 id="winner"></h1>
+            <h1>wins</h1>
+          </span>
+          <h2 onclick="play_again()">play again</h2>
         </div>
-        <div id="left-side">
-            <div id="left-side-banner">
-                <h1>WORMS</h1>
-                <h2>GAME</h2>
-            </div>
-            <h1 class="point-goal" id="points-goal"></h1>
-            <h2 class="point-goal">point goal</h2>
-            <h4 class="point-goal">2 points diffrence</h4>
-            <h1 id="leaderboard-sign">LEADERBOARD</h1>
-            <div id="leaderboard">
-                <div class="leaderboard-line" id="leaderboard-line-1"><h1>#1</h1><p id="leaderboard-1"></p><i class="icon-crown"></i><p id="score-1" class="scores"></p></div>
-                <div class="leaderboard-line" id="leaderboard-line-2"><h1>#2</h1><p id="leaderboard-2"></p><p id="score-2" class="scores"></p></div>
-                <div class="leaderboard-line" id="leaderboard-line-3"><h1>#3</h1><p id="leaderboard-3"></p><p id="score-3" class="scores"></p></div>
-                <div class="leaderboard-line" id="leaderboard-line-4"><h1>#4</h1><p id="leaderboard-4"></p><p id="score-4" class="scores"></p></div>
-            </div>
-            <p id="pause-info">Click 'SPACE' to pause / resume the game</p>
+      </div>
+      <div id="left-side">
+        <div id="left-side-banner">
+          <h1>WORMS</h1>
+          <h2>GAME</h2>
         </div>
+        <h1 class="point-goal" id="points-goal"></h1>
+        <h2 class="point-goal">point goal</h2>
+        <h4 class="point-goal">2 points diffrence</h4>
+        <h1 id="leaderboard-sign">LEADERBOARD</h1>
+        <div id="leaderboard">
+          <div class="leaderboard-line" id="leaderboard-line-1">
+            <h1>#1</h1>
+            <p id="leaderboard-1"></p>
+            <i class="icon-crown"></i>
+            <p id="score-1" class="scores"></p>
+          </div>
+          <div class="leaderboard-line" id="leaderboard-line-2">
+            <h1>#2</h1>
+            <p id="leaderboard-2"></p>
+            <p id="score-2" class="scores"></p>
+          </div>
+          <div class="leaderboard-line" id="leaderboard-line-3">
+            <h1>#3</h1>
+            <p id="leaderboard-3"></p>
+            <p id="score-3" class="scores"></p>
+          </div>
+          <div class="leaderboard-line" id="leaderboard-line-4">
+            <h1>#4</h1>
+            <p id="leaderboard-4"></p>
+            <p id="score-4" class="scores"></p>
+          </div>
+        </div>
+        <p id="pause-info">Click 'SPACE' to pause / resume the game</p>
+      </div>
     </div>
   </body>
 </html>
