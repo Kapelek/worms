@@ -1,4 +1,4 @@
-ENG:
+### ◻️ DESCRIPTION - ENG:
 
 The 'Worms' game is dedicated to play for two, three or four persons only (playing on one keyboard).
 
@@ -16,7 +16,7 @@ When there's last player standing, the new round begins.
 
 Game lasts until one player achieves the score goal with the two-points lead.
 
-PL:
+### ◻️ DESCRIPTION - PL:
 
 Gra 'Worms' przeznaczona jest do gry w dwie, trzy lub cztery osoby (które grają na jednej klawiaturze). 
 
