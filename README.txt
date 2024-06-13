@@ -10,7 +10,7 @@ When you're set and ready to go, cick 'PLAY' to start the game.
 
 Basically, the players will compete against each other trying to survive on the limited space with other worms, leaving their tails behind, by finding free space and trying not to bump in any player's tail including their own. Remember - the yellow border also kills xP.
 
-When one player dies, others get 1 point then.
+When one player dies, others (who are alive) get 1 point then.
 
 When there's last player standing, the new round begins.
 
